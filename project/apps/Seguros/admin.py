@@ -1,36 +1,34 @@
 from django.contrib import admin
-
 from . import models
 
 admin.site.site_title = "Seguros"
 
-# admin.site.register(models.ProductoCategoria)
+
 
 
 @admin.register(models.SeguroCategoria)
 class SeguroCategoriaAdmin(admin.ModelAdmin):
-    list_display = ("nombre", "descripcion")
-    list_filter = ("nombre",)
-    search_fields = ("nombre", "descripcion")
-    ordering = ("nombre",)
+    list_display = ("riesgo", "descripcion")
+    list_filter = ("riesgo",)
+    search_fields = ("riesgo", "descripcion")
+    ordering = ("riesgo",)
 
 
 @admin.register(models.Seguro)
 class SeguroAdmin(admin.ModelAdmin):
     list_display = (
-        "categoria",
-        "nombre",
-        "unidad_de_medida",
-        "cantidad",
-        "precio",
+        "riesgo",
+        "seccion",
         "descripcion",
-        "fecha_actualizacion"
+        "suma",
+        "fecha_suscripcion",
+
     )
-    list_display_links = ("nombre",)
-    search_fields = ("nombre",)
+    list_display_links = ("riesgo",)
+    search_fields = ("riesgo",)
     ordering = (
-        "categoria",
-        "nombre"
+        "descripcion",
+        "riesgo"
     )
-    list_filter = ("categoria",)
-    date_hierarchy = "fecha_actualizacion"
+    list_filter = ("descripcion",)
+    date_hierarchy = "fecha_suscripcion"
