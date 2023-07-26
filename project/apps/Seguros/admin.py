@@ -6,16 +6,16 @@ admin.site.site_title = "Seguros"
 
 
 
-@admin.register(models.SeguroCategoria)
-class SeguroCategoriaAdmin(admin.ModelAdmin):
+@admin.register(models.SegurosCategoria)
+class SegurosCategoriaAdmin(admin.ModelAdmin):
     list_display = ("riesgo", "descripcion")
     list_filter = ("riesgo",)
     search_fields = ("riesgo", "descripcion")
     ordering = ("riesgo",)
 
 
-@admin.register(models.Seguro)
-class SeguroAdmin(admin.ModelAdmin):
+@admin.register(models.Seguros)
+class SegurosAdmin(admin.ModelAdmin):
     list_display = (
         "riesgo",
         "seccion",
