@@ -1,6 +1,6 @@
 from django.db import models
 
-class Cliente(models.Model):
+class Clientes(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     nacimiento = models.DateField(null=True)

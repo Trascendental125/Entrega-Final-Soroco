@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class SeguroCategoria(models.Model):
+class SegurosCategoria(models.Model):
     #Categorías de seguros 
     riesgo = models.CharField(max_length=200, unique=True)
     descripcion = models.CharField(
@@ -16,9 +16,9 @@ class SeguroCategoria(models.Model):
         verbose_name_plural = "categorías de seguros"
 
 
-class Seguro(models.Model):
+class Seguros(models.Model):
     #Tipos de seguros
-    riesgo = models.ForeignKey(SeguroCategoria, on_delete=models.SET_NULL, blank=True, null=True)
+    riesgo = models.ForeignKey(SegurosCategoria, on_delete=models.SET_NULL, blank=True, null=True)
     seccion = models.CharField(max_length=250, null=True, blank=True)
     suma = models.FloatField()
     descripcion = models.CharField(max_length=250, null=True, blank=True)

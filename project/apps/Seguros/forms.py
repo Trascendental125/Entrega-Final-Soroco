@@ -2,13 +2,13 @@ from django import forms
 from . import models
 
 
-class SeguroCategoriaForm(forms.ModelForm):
+class SegurosCategoriaForm(forms.ModelForm):
     class Meta:
-        model = models.SeguroCategoria
+        model = models.SegurosCategoria
         fields = "__all__"
 
 
-class SeguroForm(forms.ModelForm):
+class SegurosForm(forms.ModelForm):
     class Meta:
-        model = models.Seguro
+        model = models.Seguros
         fields = "__all__"

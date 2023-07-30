@@ -1,0 +1,19 @@
+{% extends 'seguros/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Detalle de Seguros
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    
+    <ul>
+        <li>Riesgo: {{ object.riesgo }} </li>
+        <li>Sección: {{ object.seccion }} </li>
+        <li>Suma Asegurada: {{ object.suma }} </li>
+        <li>Descripción: {{ object.descripcion }} </li>
+        <li>Fecha de suscripcion: {{ object.fecha_suscripcion }} </li>
+    </ul>
+
+    {% include 'Home/index_back.html' %}
+    
+{% endblock INDEX_CONTENIDO %}

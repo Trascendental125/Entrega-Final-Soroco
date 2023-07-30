@@ -22,61 +22,61 @@ from . import forms, models
 
 @login_required
 def index(request):
-    return render(request, "Seguros/index.html")
+    return render(request, "seguros/index.html")
 
-class SeguroCategoriaList(ListView):
-    model = models.SeguroCategoria
-
-
-class SeguroCategoriaCreate(CreateView):
-    model = models.SeguroCategoria
-    form_class = forms.SeguroCategoriaForm
-    success_url = reverse_lazy("Seguros:segurocategoria_list")
+class SegurosCategoriaList(ListView):
+    model = models.SegurosCategoria
 
 
-class SeguroCategoriaDetail(DetailView):
-    model = models.SeguroCategoria
+class SegurosCategoriaCreate(CreateView):
+    model = models.SegurosCategoria
+    form_class = forms.SegurosCategoriaForm
+    success_url = reverse_lazy("Seguros:seguroscategoria_list")
 
 
-class SeguroCategoriaUpdate(UpdateView):
-    model = models.SeguroCategoria
-    form_class = forms.SeguroCategoriaForm
-    success_url = reverse_lazy("Seguros:segurocategoria_list")
+class SegurosCategoriaDetail(DetailView):
+    model = models.SegurosCategoria
 
 
-class SeguroCategoriaDelete(DeleteView):
-    model = models.SeguroCategoria
-    success_url = reverse_lazy("Seguros:segurocategoria_list")
+class SegurosCategoriaUpdate(UpdateView):
+    model = models.SegurosCategoria
+    form_class = forms.SegurosCategoriaForm
+    success_url = reverse_lazy("Seguros:seguroscategoria_list")
 
 
-class SeguroList(ListView):
-    model = models.Seguro
+class SegurosCategoriaDelete(DeleteView):
+    model = models.SegurosCategoria
+    success_url = reverse_lazy("Seguros:seguroscategoria_list")
+
+
+class SegurosList(ListView):
+    model = models.Seguros
 
     def get_queryset(self) -> QuerySet[Any]:
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = models.Seguro.objects.filter(nombre__icontains=consulta)
+            object_list = models.Seguros.objects.filter(nombre__icontains=consulta)
         else:
-            object_list = models.Seguro.objects.all()
+            object_list = models.Seguros.objects.all()
         return object_list
 
 
-class SeguroCreate(CreateView):
-    model = models.Seguro
-    form_class = forms.SeguroForm
-    success_url = reverse_lazy("producto:producto_list")
+class SegurosCreate(CreateView):
+    model = models.Seguros
+    form_class = forms.SegurosForm
+    success_url = reverse_lazy("Seguros:seguros_list")
 
 
-class SeguroDetail(DetailView):
-    model = models.Seguro
+class SegurosDetail(DetailView):
+    model = models.Seguros
 
 
-class SeguroUpdate(UpdateView):
-    model = models.Seguro
-    form_class = forms.SeguroForm
-    success_url = reverse_lazy("Seguros:seguro_list")
+class SegurosUpdate(UpdateView):
+    model = models.Seguros
+    form_class = forms.SegurosForm
+    success_url = reverse_lazy("Seguros:seguros_list")
 
 
-class SeguroDelete(DeleteView):
-    model = models.Seguro
-    success_url = reverse_lazy("Seguros:seguro_list")
+class SegurosDelete(DeleteView):
+    model = models.Seguros
+    success_url = reverse_lazy("Seguros:seguros_list")
