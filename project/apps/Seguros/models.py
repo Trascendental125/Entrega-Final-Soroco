@@ -23,6 +23,7 @@ class Seguros(models.Model):
     suma = models.FloatField()
     descripcion = models.CharField(max_length=250, null=True, blank=True)
     fecha_suscripcion = models.DateTimeField(default=timezone.now, editable=False, verbose_name="fecha de suscripcion")
+    foto_inspeccion = models.ImageField(upload_to="fotos_inspeccion", blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.riesgo} {self.seccion} {self.descripcion}"

@@ -12,6 +12,7 @@
         <li>Suma Asegurada: {{ object.suma }} </li>
         <li>Descripción: {{ object.descripcion }} </li>
         <li>Fecha de suscripcion: {{ object.fecha_suscripcion }} </li>
+        <li>Foto Inspección: <img src="{{ object.foto_inspeccion.url }}" alt="Foto de inspección"></li>
     </ul>
 
     {% include 'Home/index_back.html' %}

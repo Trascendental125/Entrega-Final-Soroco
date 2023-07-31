@@ -11,6 +11,7 @@
         <p>{{ cliente.apellido }}</p>
         <p>{{ cliente.nacimiento }}</p>
         <p>{{ cliente.cuit }}</p>
+        <img src="{{ cliente.avatar.url }}" alt="{{ cliente.nombre }} {{ cliente.apellido }}">
     {% endfor %}
 
     <a href="{% url 'Home:home' %}">Ir al menú principal</a>
