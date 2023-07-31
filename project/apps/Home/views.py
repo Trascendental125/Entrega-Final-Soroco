@@ -20,15 +20,19 @@ def login_request(request: HttpRequest) -> HttpResponse:
             user = authenticate(username=usuario, password=contraseña)
             if user is not None:
                 login(request, user)
-                return render(request, "Home/index.html", {"mensaje": "Inició sesión correctamente"})
+                return render(request, "Home/index.html", {"mensaje": "Sesión Iniciada"})
     else:
         form = forms.CustomAuthenticationForm()
     return render(request, "Home/login.html", {"form": form})
 
-# Vista para el registro
-def register(request):
-    # Aquí debes implementar la lógica para el registro de usuarios
-    # Por ejemplo, crear un nuevo usuario con el formulario de registro
-    # y realizar acciones adicionales necesarias.
-    return render(request, "Home/register.html")
-
+# @staff_member_required
+def register(request: HttpRequest) -> HttpResponse:
+    if request.method == "POST":
+        form = forms.CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            form.save()
+            return render(request, "Home/index.html", {"mensaje": "Registro Exitoso"})
+    else:
+        form = forms.CustomUserCreationForm()
+    return render(request, "Home/register.html", {"form": form})
