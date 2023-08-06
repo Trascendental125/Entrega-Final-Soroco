@@ -11,6 +11,9 @@ Soy productor seguros y tanto el logo como el about son originales de mi página
 SuperUser: admin
 Pass: 1234
 
-Usuario creado: MiguelFernandez
-Pass: Miguelito123
+Usuario creado: JuanZZZ
+Pass: Juancito123
+
+Video explicativo: https://drive.google.com/file/d/1ZV2D2574nw3SKzYlidaOFWHo3z5rigis/view?usp=sharing
+
 
