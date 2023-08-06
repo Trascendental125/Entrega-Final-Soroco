@@ -3,7 +3,6 @@ from django.utils import timezone
 
 
 class SegurosCategoria(models.Model):
-    #Categorías de seguros 
     riesgo = models.CharField(max_length=200, unique=True)
     descripcion = models.CharField(
     max_length=250, null=True, blank=True, verbose_name="descripción")
@@ -23,7 +22,7 @@ class Seguros(models.Model):
     suma = models.FloatField()
     descripcion = models.CharField(max_length=250, null=True, blank=True)
     fecha_suscripcion = models.DateTimeField(default=timezone.now, editable=False, verbose_name="fecha de suscripcion")
-    foto_inspeccion = models.ImageField(upload_to="fotos_inspeccion", blank=True, null=True)
+    fotos = models.ImageField(upload_to= "fotos_inspeccion", blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.riesgo} {self.seccion} {self.descripcion}"

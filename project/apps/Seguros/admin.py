@@ -8,9 +8,9 @@ admin.site.site_title = "Seguros"
 
 @admin.register(models.SegurosCategoria)
 class SegurosCategoriaAdmin(admin.ModelAdmin):
-    list_display = ("riesgo", "descripcion")
+    list_display = ("riesgo", "descripcion",)
     list_filter = ("riesgo",)
-    search_fields = ("riesgo", "descripcion")
+    search_fields = ("riesgo", "descripcion",)
     ordering = ("riesgo",)
 
 
@@ -22,6 +22,7 @@ class SegurosAdmin(admin.ModelAdmin):
         "descripcion",
         "suma",
         "fecha_suscripcion",
+        "fotos",
 
     )
     list_display_links = ("riesgo",)

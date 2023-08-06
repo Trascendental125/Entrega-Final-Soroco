@@ -12,9 +12,15 @@
         <li>Suma Asegurada: {{ object.suma }} </li>
         <li>Descripción: {{ object.descripcion }} </li>
         <li>Fecha de suscripcion: {{ object.fecha_suscripcion }} </li>
-        <li>Foto Inspección: <img src="{{ object.foto_inspeccion.url }}" alt="Foto de inspección"></li>
+        {% if object.fotos %}
+            <li>Foto Inspección: <img src="{{ object.fotos.url }}" alt="Foto de inspección"></li>
+        {% else %}
+            <li>No hay foto de inspección disponible.</li>
+        {% endif %}
     </ul>
 
     {% include 'Home/index_back.html' %}
     
 {% endblock INDEX_CONTENIDO %}
+
+
